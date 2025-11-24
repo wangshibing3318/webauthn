@@ -404,9 +404,9 @@ func (webauthn *WebAuthn) validateLogin(user User, session SessionData, parsedRe
 	}
 
 	// Check if the BackupEligible flag has changed.
-	if credential.Flags.BackupEligible != parsedResponse.Response.AuthenticatorData.Flags.HasBackupEligible() {
-		return nil, protocol.ErrBadRequest.WithDetails("Backup Eligible flag inconsistency detected during login validation")
-	}
+	//if credential.Flags.BackupEligible != parsedResponse.Response.AuthenticatorData.Flags.HasBackupEligible() {
+	//	return nil, protocol.ErrBadRequest.WithDetails("Backup Eligible flag inconsistency detected during login validation")
+	//}
 
 	// Check for the invalid combination BE=0 and BS=1.
 	if !parsedResponse.Response.AuthenticatorData.Flags.HasBackupEligible() && parsedResponse.Response.AuthenticatorData.Flags.HasBackupState() {
